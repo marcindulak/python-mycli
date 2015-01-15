@@ -48,9 +48,9 @@ The currently supported systems include:
         su -c "wget http://download.opensuse.org/repositories/home:/marcindulak/RHEL_7/home:marcindulak.repo -O /etc/yum.repos.d/home:marcindulak.repo"
         su -c "yum -y install python-mycli"
 
-- openSUSE 13.1 (as root)::
+- openSUSE Factory (as root)::
 
-        zypper ar -f http://download.opensuse.org/repositories/home:/marcindulak/openSUSE_13.1/home:marcindulak.repo
+        zypper ar -f http://download.opensuse.org/repositories/home:/marcindulak/openSUSE_Factory/home:marcindulak.repo
         yast -i python-mycli
 
 - Debian 7.0::
