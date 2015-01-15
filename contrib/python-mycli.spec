@@ -63,7 +63,7 @@ export PATH=`pwd`/build/scripts-%{python2_version}:${PATH}
 
 
 %files
-%doc LICENSE README.rst
+%doc LICENSE README.md
 %{_bindir}/*
 %{python2_sitelib}/%{upstream_name}
 %{?!el5:%{python2_sitelib}/*.egg-info}
