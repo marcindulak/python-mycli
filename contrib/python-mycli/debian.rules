@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+# from http://www.rowinggolfer.org/tutorials/packaging/dh_python2_tutorial.html
+
+DH_VERBOSE=1
+
+PYTHON2=$(shell pyversions -vr)
+
+%:
+	dh $@ --buildsystem=python_distutils --with=python2
+
+test-python%:
+	set -ex && \
+	PYTHONPATH=.:${PYTHONPATH} python$* -m unittest discover -s mycli/tests -p '*.py'
+
+override_dh_auto_test: $(PYTHON2:%=test-python%)

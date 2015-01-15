@@ -1,0 +1,6 @@
+include MANIFEST.in
+include LICENSE README.md
+include mycli/tests/prt.txt
+recursive-include contrib *
+recursive-include doc *
+recursive-include contrib *
