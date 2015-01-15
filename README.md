@@ -69,3 +69,10 @@ The currently supported systems include:
 
 For the full list of supported distributions check
 https://build.opensuse.org/package/show?package=python-mycli&project=home%3Amarcindulak
+
+Usage
+-----
+
+For help::
+
+    mycli -h
