@@ -58,7 +58,7 @@ The currently supported systems include:
         sudo bash -c 'echo "deb http://download.opensuse.org/repositories/home:/marcindulak/Debian_7.0 /" > /etc/apt/sources.list.d/home_marcindulak.sources.list'
         wget http://download.opensuse.org/repositories/home:/marcindulak/Debian_7.0/Release.key && sudo apt-key add Release.key && rm Release.key
         sudo apt-get update
-        sudo apt-get python-mycli
+        sudo apt-get install python-mycli
 
 - Ubuntu 14.04::
 
