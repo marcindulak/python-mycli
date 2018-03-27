@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/marcindulak/python-mycli.svg?branch=master)](https://travis-ci.org/marcindulak/python-mycli)
+
 Example usage of argparse
 =========================
 
