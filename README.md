@@ -25,6 +25,10 @@ https://pypi.python.org/pypi/argparse
 Run the unit tests from the project root directory
 (only for Python >= 2.7 and >= 3.2)::
 
+    python setup.py test
+
+or, explicitly with:
+
     python -m unittest discover -s mycli/tests -p '*.py'
 
 For a similar project, making use of several additional libraries see

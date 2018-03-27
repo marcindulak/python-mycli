@@ -4,6 +4,7 @@ import os
 import sys
 
 from distutils.core import setup
+from distutils.cmd import Command
 
 name = "mycli"
 
@@ -14,7 +15,7 @@ long_description = open(os.path.join(rootdir, 'README.md')).read()
 
 # Python 2.4 or later needed
 if sys.version_info < (2, 4, 0, 'final', 0):
-    raise SystemExit, 'Python 2.4 or later is required!'
+    raise SystemExit('Python 2.4 or later is required!')
 
 # Build a list of all project modules
 packages = []
@@ -51,6 +52,21 @@ for dirname, dirnames, filenames in os.walk('doc'):
             fileslist.append(fullname)
         data_files.append(('share/' + name + '/' + dirname, fileslist))
 
+# python setup.py test with distutils
+# https://justin.abrah.ms/python/setuppy_distutils_testing.html
+class TestCommand(Command):
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        import sys, subprocess
+        raise SystemExit(subprocess.call([sys.executable, '-m', 'unittest', 'discover', '-s', name + '/tests', '-p',  '*.py']))
+
 setup(name='python-' + name,
       version=version,  # PEP440
       description='mycli - shows some argparse features',
@@ -59,6 +75,7 @@ setup(name='python-' + name,
       author='Marcin Dulak',
       author_email='Marcin.Dulak@gmail.com',
       license='ASL',
+      cmdclass={'test': TestCommand},
       # https://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
           'Development Status :: 1 - Planning',
@@ -72,14 +89,14 @@ setup(name='python-' + name,
           'Programming Language :: Python :: 2.6',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.2',
-          'Programming Language :: Python :: 3.3',
           'Programming Language :: Python :: 3.4',
+          'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: 3.6',
       ],
+      data_files=data_files,
       keywords='argparse distutils cli unittest RPM spec deb',
       packages=packages,
       package_dir=package_dir,
       package_data=package_data,
       scripts=scripts,
-      data_files=data_files,
       )
