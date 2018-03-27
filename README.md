@@ -49,30 +49,30 @@ The currently supported systems include:
 - RHEL/CentOS 7::
 
         su -c "yum -y install wget"
-        su -c "wget http://download.opensuse.org/repositories/home:/marcindulak/RHEL_7/home:marcindulak.repo -O /etc/yum.repos.d/home:marcindulak.repo"
+        su -c "wget https://build.opensuse.org/project/repository_state/home:marcindulak/RHEL_7/home:marcindulak.repo -O /etc/yum.repos.d/home:marcindulak.repo"
         su -c "yum -y install python-mycli"
 
-- openSUSE Factory (as root)::
+- openSUSE Tumbleweed (as root)::
 
-        zypper ar -f http://download.opensuse.org/repositories/home:/marcindulak/openSUSE_Factory/home:marcindulak.repo
+        zypper ar -f https://download.opensuse.org/repositories/home:/marcindulak/openSUSE_Tumbleweed/home:marcindulak.repo
         yast -i python-mycli
 
-- Debian 7.0::
+- Debian 9.0::
 
-        sudo bash -c 'echo "deb http://download.opensuse.org/repositories/home:/marcindulak/Debian_7.0 /" > /etc/apt/sources.list.d/home_marcindulak.sources.list'
-        wget http://download.opensuse.org/repositories/home:/marcindulak/Debian_7.0/Release.key && sudo apt-key add Release.key && rm Release.key
+        sudo bash -c 'echo "deb https://download.opensuse.org/repositories/home:/marcindulak/Debian_9.0 /" > /etc/apt/sources.list.d/home_marcindulak.sources.list'
+        wget https://download.opensuse.org/repositories/home:/marcindulak/Debian_9.0/Release.key && sudo apt-key add Release.key && rm Release.key
         sudo apt-get update
         sudo apt-get install python-mycli
 
 - Ubuntu 14.04::
 
-        sudo bash -c 'echo "deb http://download.opensuse.org/repositories/home:/marcindulak/xUbuntu_14.04 /" > /etc/apt/sources.list.d/home_marcindulak.sources.list'
-        wget http://download.opensuse.org/repositories/home:/marcindulak/xUbuntu_14.04/Release.key && sudo apt-key add Release.key && rm Release.key
+        sudo bash -c 'echo "deb https://download.opensuse.org/repositories/home:/marcindulak/xUbuntu_14.04 /" > /etc/apt/sources.list.d/home_marcindulak.sources.list'
+        wget https://download.opensuse.org/repositories/home:/marcindulak/xUbuntu_14.04/Release.key && sudo apt-key add Release.key && rm Release.key
         sudo apt-get update
         sudo apt-get install python-mycli
 
 For the full list of supported distributions check
-https://build.opensuse.org/package/show?package=python-mycli&project=home%3Amarcindulak
+https://build.opensuse.org/package/show/home:marcindulak/python-mycli
 
 Usage
 -----
