@@ -42,7 +42,7 @@ and the deb directory structure for building on build.opensuse.org.
 The binaries are available at download.opensuse.org.
 
 Install the binaries with the software package manager of your Linux
-distribution.
+distribution. Only Python2 is packaged.
 
 The currently supported systems include:
 

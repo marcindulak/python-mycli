@@ -5,7 +5,12 @@ try:
     from StringIO import StringIO  # python 2
 except ImportError:
     from io import StringIO  # python 3
-import unittest
+
+try:
+    # https://pypi.python.org/pypi/unittest2
+    import unittest2 as unittest  # python <= 2.6
+except ImportError:
+    import unittest  # python >= 2.7
 
 from mycli.cli import create_parser
 from mycli.prt import prt
@@ -29,6 +34,14 @@ class mycliTests(unittest.TestCase):
         self.assertTrue(expected == result)
 
     def test_case3(self):  # NotImplementedError --case 3
+        # https://stackoverflow.com/questions/17585207/python-unittest-assertraises
+        # https://stackoverflow.com/questions/129507/how-do-you-test-that-a-python-function-throws-an-exception
         parser = create_parser()
-        with self.assertRaises(SystemExit):
+        try:
             parser.parse_args(['--case', '3'])
+        except SystemExit:
+            pass
+        except Exception as e:
+            self.fail('Unexpected exception raised: %s' % e)
+        else:
+            self.fail('ExpectedException not raised')

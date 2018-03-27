@@ -65,7 +65,10 @@ class TestCommand(Command):
 
     def run(self):
         import sys, subprocess
-        raise SystemExit(subprocess.call([sys.executable, '-m', 'unittest', 'discover', '-s', name + '/tests', '-p',  '*.py']))
+        if sys.version_info < (2, 7, 0, 'final', 0):
+            raise SystemExit(subprocess.call(['unit2', 'discover', '-s', name + '/tests', '-p',  '*.py']))
+        else:
+            raise SystemExit(subprocess.call([sys.executable, '-m', 'unittest', 'discover', '-s', name + '/tests', '-p',  '*.py']))
 
 setup(name='python-' + name,
       version=version,  # PEP440
